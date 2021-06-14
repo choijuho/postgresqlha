@@ -1,13 +1,14 @@
 # postgresqlha
 
 0. 공통적으로 처리할 것
-
+```
 a. /etc/hosts 파일 셋팅
 10.213.194.33 dbmaster
 10.213.194.9 dbslave-01
 10.213.194.32 pgpool-01
 
 b. apt upgrade, update
+```
 
 1. postgresql 설치
 
