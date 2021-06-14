@@ -35,8 +35,7 @@ su - postgres
 psql
 create user replicator with replication encrypted password 'new1234!';
 ```
-
-1.2 master-slave 각각 config file 설정
+db config file 설정
 위치
 /etc/postgresql/13/main/
 
@@ -45,7 +44,7 @@ create user replicator with replication encrypted password 'new1234!';
 systemctl restart postgresql
 ```
 
-1.3 slave server 설정
+1.2 slave server 설정
 config 설정 완료 후, DB down
 ```
 systemctl stop postgresql
@@ -60,7 +59,7 @@ pg_basebackup -h masterIP -U replicator -p 5432 -D /var/lib/postgresql/13/main
 sudo systemctl start postgresql
 ```
 
-1.4 정상 동작 확인
+1.3 정상 동작 확인
 마스터 서버
 ```
 #마스터에는 walsender 슬레이브에는 walreceiver가 동작
