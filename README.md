@@ -64,31 +64,69 @@ ps -ef|grep post
 create table repl_test(name char(10));
 ```
 슬레이브에서 생성 확인
-
-
+```
+su postgres
+psql
+select * from repl_test;
+or
+\dt
+```
 
 2. pgpool 설치
+apt update, upgrade 해주고,
 ```bash
 wget https://www.pgpool.net/mediawiki/download.php?f=pgpool-II-4.2.3.tar.gz
-tar -xvfz
+tar -xvfz 파일명
 
 apt install libpq-dev
+apt install gcc
+apt install make
+apt install postgresql-client-common
+apt install postgresql-client
 
-#압축 푼 폴더
+#압축 푼 폴더에서 인스톨
 ./configure
 make
 sudo make install
 
 mkdir /var/run/pgpool
+```
 
-#config setting 해주고, 작동 명령어
+아래 위치에서 파일 설정(failover.sh, pgpool.conf)
+/usr/local/etc
+```
+cp pool_hba.conf.sample pool_hba.conf
+```
+
+ssh key 생성해서, DB 서버의 postgres 계정 .ssh/authorized_key에 입력
+```
+ssh-keygen -t rsa
+```
+
+패스워드 암호화 키 생성
+```
+pg_md5 -m -p -u postgres
+#패스워드 입력
+#/usr/local/etc/pool_passwd 파일이 생성됨
+
+```
+
+```
+#작동 명령어
 pgpool
-
+#shutdown
 pgpool -m shutdown stop
 ```
 
+동작 확인
+```
+psql -h localhost -U postgres -p 9999
+show pool_nodes;
+# server 둘다 status up  되어 있는지 확인
+```
 
-
+마스터 DB 서버에서 서비스 내려보고, 자동 failover 확인
+다시 원복 시킬때는 슬레이브 DB에 데이터 폴더 지우고, db_back~ 명령어 처리하는 부분부터 다시 셋팅
 
 
 
