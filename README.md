@@ -142,6 +142,7 @@ pg_md5 -m -p -u postgres
 ```
 #작동 명령어
 pgpool
+# -C -D 캐쉬 날리고, 이전의 풀 상태로 정리하고 시작
 #shutdown
 pgpool -m shutdown stop
 ```
