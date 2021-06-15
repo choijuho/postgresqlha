@@ -123,10 +123,12 @@ cp pool_hba.conf.sample pool_hba.conf
 chown 744 failover.sh
 ```
 
-ssh key 생성해서, DB 서버의 postgres 계정 .ssh/authorized_key에 입력
+ssh key 생성해서, DB 서버의 postgres 계정 .ssh/authorized_keys에 입력
 ```
 ssh-keygen -t rsa
 ```
+혹시, 접속 문제 생길때 /etc/ssh/sshd_config 확인 - 퍼블릭키인증 yes
+
 
 패스워드 암호화 키 생성
 ```
