@@ -13,8 +13,9 @@ b. apt upgrade, update
 1. postgresql 설치
 
 ```bash
-sudo apt -y install update
-sudo apt -y install upgrade
+#root로 실행
+apt update
+apt upgrade
 
 #최신 버전 레포지토리
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
