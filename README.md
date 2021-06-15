@@ -41,6 +41,7 @@ service postgresql status
 su - postgres
 psql
 create user replicator with replication encrypted password 'new1234!';
+alter user postgres with password 'new1234!';
 ```
 db config file 설정
 위치
