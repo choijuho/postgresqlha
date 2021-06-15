@@ -61,7 +61,7 @@ su postgres
 #Data 폴더 삭제
 rm -rf /var/lib/postgresql/13/main
 
-pg_basebackup -h masterIP -U replicator -p 5432 -D /var/lib/postgresql/13/main
+pg_basebackup -h dbmaster -U replicator -p 5432 -D /var/lib/postgresql/13/main -Xs -P -R
 
 sudo systemctl start postgresql
 ```
