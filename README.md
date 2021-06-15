@@ -87,7 +87,7 @@ or
 apt update, upgrade 해주고,
 ```bash
 wget https://www.pgpool.net/mediawiki/download.php?f=pgpool-II-4.2.3.tar.gz
-tar -xvfz 파일명
+tar xvfz 파일명
 
 apt install libpq-dev
 apt install gcc
