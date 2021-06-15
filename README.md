@@ -92,6 +92,19 @@ tar -xvfz 파일명
 apt install libpq-dev
 apt install gcc
 apt install make
+
+
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+
+sudo apt install wget ca-certificates
+
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+apt update
+
+#13version client 
+apt show postgresql-client
+
 apt install postgresql-client-common
 apt install postgresql-client
 
