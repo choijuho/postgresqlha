@@ -120,7 +120,7 @@ mkdir /var/run/pgpool
 /usr/local/etc
 ```
 cp pool_hba.conf.sample pool_hba.conf
-chown 744 failover.sh
+chmod 744 failover.sh
 ```
 
 ssh key 생성해서, DB 서버의 postgres 계정 .ssh/authorized_keys에 입력
