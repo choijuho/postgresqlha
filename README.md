@@ -157,6 +157,10 @@ show pool_nodes;
 마스터 DB 서버에서 서비스 내려보고, 자동 failover 확인
 다시 원복 시킬때는 슬레이브 DB에 데이터 폴더 지우고, db_baseback~ 명령어 처리하는 부분부터 다시 셋팅
 
+```sql
+create user appuser with password 'new1234!';
+create database dnsvmdb owner appuser;
+````
 
 
 
